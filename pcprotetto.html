@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PcProtetto</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="182f3e67-ed45-804b-b166-d9374108b91f" class="page sans"><header><h1 class="page-title">PcProtetto</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-801c-9b14-d7f29f7ba4af"><div style="font-size:1.5em"><span class="icon">🦠</span></div><div style="width:100%"><p id="182f3e67-ed45-802b-be93-ec0f2eed5a7a" class=""><em><span style="border-bottom:0.05em solid">Virus e Pc Lento</span></em>?<br/>Possiamo Risolvere!<br/><br/><em><span style="border-bottom:0.05em solid">PC Pulito e Veloce</span></em>, o è GRATIS!</p><p id="182f3e67-ed45-806d-9b02-f07cf9152897" class="">
+</p><p id="182f3e67-ed45-805a-aae0-c978524fc2ba" class="">Siamo specializzati nella <em><span style="border-bottom:0.05em solid">rimozione Virus e Velocizzazione del Pc</span></em></p></div></figure><p id="182f3e67-ed45-8040-a724-c72c84fbae9e" class="">
+</p><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80ee-bc2e-eaaa2f63bc24"><div style="font-size:1.5em"><span class="icon">🦠</span></div><div style="width:100%"><p id="182f3e67-ed45-80f6-961e-d010fdd0cae8" class="">I tuoi dati NON verranno cancellati o alterati. </p><p id="182f3e67-ed45-805e-b46b-ee3b2e0c416f" class=""><br/>Tutto sarà identico a prima!<br/></p><p id="182f3e67-ed45-80b4-8de7-c151b8375317" class=""><br/>Tornerai a casa con lo stesso PC e le stesse impostazioni, solo più veloce e scattante!<br/></p><p id="182f3e67-ed45-80d9-9ce8-c6d2103c460d" class=""><br/>Andiamo alla ricerca di Virus e Problemi, Estirpiamo il problema SENZA cancellare i tuoi dati.<br/></p><p id="182f3e67-ed45-80a2-a109-cb9874c6a68a" class=""><br/>Te lo ridiamo veloce e scattante entro 24 ORE.<br/></p><p id="182f3e67-ed45-805c-bcd6-c255710e4d7a" class=""><br/>Soddisfatto o Rimborsato!<br/></p></div></figure><p id="182f3e67-ed45-8049-ae7b-e5c92879f1d4" class="">
+</p><figure class="block-color-pink_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8028-9d2f-d7273e6c63c6"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%"><p id="182f3e67-ed45-80ff-b963-c62ed3559593" class="">SE IL TUO COMPUTER VA LENTO, HA PROBLEMI O NON SI ACCENDE, LA CAUSA PUO&#x27; ESSERE UN VIRUS...</p><ul id="182f3e67-ed45-80a6-8499-e0731d589796" class="bulleted-list"><li style="list-style-type:disc">PcProtetto è il nuovo servizio di <em><span style="border-bottom:0.05em solid">Assistenza Pc specializzato nella rimozione di Virus e Velocizzazione del tuo Pc</span></em>.</li></ul><ul id="182f3e67-ed45-8067-a1e1-d5c06cacd0c4" class="bulleted-list"><li style="list-style-type:disc">A differenza di altri tecnici siamo gli unici in Italia specializzati nella risoluzione di <em><span style="border-bottom:0.05em solid">problemi Software</span></em> (va lento, non si accende, si blocca, ha pagine e programmi che si aprono da sole, si spegne da solo ECC).</li></ul><ul id="182f3e67-ed45-807e-9a9e-fd9ae6091cfe" class="bulleted-list"><li style="list-style-type:disc">NON ci occupiamo di VENDITA e NON facciamo riparazioni Hardware (scheda video, schermi ecc).</li></ul></div></figure><p id="182f3e67-ed45-8073-a7f7-f6c60b20dda3" class="">
+</p><nav id="182f3e67-ed45-8066-a552-cdad3876bfd9" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-800c-bfe8-ee1abac16399">Ecco i problemi più comuni:</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-803d-b1cf-e99b13c2d284">I 4 FALSI MITI:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-80d0-89e6-cb7e82b4255d">L&#x27;Antivirus elimina i virus!</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-8008-8237-c597fe0c1797">Mio cugino ne capisce di computer</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-80ab-ad5d-cf41bc9dfd3f">Programmi scaricati da internet</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-80bf-9897-ef78bdcdcefa">Formattare risolve tutto</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-8074-94cc-ec7c3973e3ed">100% SODDISFATTO O RIMBORSATO!</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-8077-9ad8-ea51ed5ee17d">RECENSIONI CLIENTI</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-80fd-9e3e-c570860a2cc7">I NOSTRI SERVIZI di riparazione software </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-80fc-8948-ff6f9a61b78d">Riparazione + Antivirus</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-8031-a813-ef0d5df54a88">Riparazione</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-802b-981b-cd238feb80b0">Altre informazioni </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-8092-ae0d-e421948fd3a9">PcProtetto [Sintesi]</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-8011-bb47-ef32d5a21f8a">Altri servizi informatici </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#182f3e67-ed45-800a-a788-cff4c2eb6a92">Corsi di informatica base per adulti - NONNI DIGITALI </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-8040-a3ca-ce15821a3f87">Argomenti Corso Smartphone (Cellulare) &amp; Tablet</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#182f3e67-ed45-8061-a272-e46a44f5befa">Argomenti Corso Computer </a></div></nav><h2 id="182f3e67-ed45-800c-bfe8-ee1abac16399" class="">Ecco i problemi più comuni:</h2><ul id="182f3e67-ed45-8007-b034-cc00b15f893d" class="bulleted-list"><li style="list-style-type:disc">Pagine e finestre si aprono da sole</li></ul><ul id="182f3e67-ed45-8060-a583-c4185e3e61d1" class="bulleted-list"><li style="list-style-type:disc">La tua pagina iniziale è cambiata e non riesci più a rimettere quella vecchia</li></ul><ul id="182f3e67-ed45-8023-a1f1-cb66b64e836b" class="bulleted-list"><li style="list-style-type:disc">Un programma dice che il tuo pc ha dei problemi</li></ul><ul id="182f3e67-ed45-8099-a1ac-d4e447312bd5" class="bulleted-list"><li style="list-style-type:disc">Non riesci ad accedere a Windows</li></ul><ul id="182f3e67-ed45-8080-8020-ff82e49e4b22" class="bulleted-list"><li style="list-style-type:disc">Non riesci ad aprire i tuoi file</li></ul><ul id="182f3e67-ed45-80bb-8894-fb4c7b4d93c0" class="bulleted-list"><li style="list-style-type:disc">I programmi si bloccano</li></ul><ul id="182f3e67-ed45-80ab-ad43-cf4c806553e7" class="bulleted-list"><li style="list-style-type:disc"><em><span style="border-bottom:0.05em solid">Il computer è lento</span></em></li></ul><ul id="182f3e67-ed45-80b3-9bc7-fa28cf89c09a" class="bulleted-list"><li style="list-style-type:disc">Quando navighi si aprono un sacco di finestre</li></ul><ul id="182f3e67-ed45-80c5-a29c-e38c58d9d01b" class="bulleted-list"><li style="list-style-type:disc">Non riesci ad andare su internet</li></ul><ul id="182f3e67-ed45-80d6-8013-d090976454ae" class="bulleted-list"><li style="list-style-type:disc">[ immagina qui il tuo problema ]</li></ul><h2 id="182f3e67-ed45-803d-b1cf-e99b13c2d284" class="">I 4 FALSI MITI:</h2><h3 id="182f3e67-ed45-80d0-89e6-cb7e82b4255d" class="">L&#x27;Antivirus elimina i virus!</h3><p id="182f3e67-ed45-80d0-b67a-f569bd888fe7" class="">L&#x27;antivirus a contrario di quel che si pensi, non elimina i virus sul tuo computer. O meglio, li elimina ma non del tutto. </p><p id="182f3e67-ed45-806b-a9c9-caa6b47e224c" class="">Facendo una semplice scansione quindi non eliminerai alcun virus e potresti mettere a serio rischio l&#x27;intero funzionamento.</p><h3 id="182f3e67-ed45-8008-8237-c597fe0c1797" class="">Mio cugino ne capisce di computer</h3><p id="182f3e67-ed45-80fa-ac1d-f8d54c46e778" class="">Evita come la peste aspiranti tecnici, geni del computer e cinesi. </p><p id="182f3e67-ed45-8024-b4c5-e24b987de1d1" class="">Se hai un problema con il computer, l&#x27;ultima cosa che devi fare è chiedere aiuto ai tuoi amici, cugini e amici di amici. </p><p id="182f3e67-ed45-8022-b35c-d2be38b40f05" class="">Non faranno altro che incasinare ancora di più il tuo computer mettendo a rischio tutti i tuoi dati. Il tuo computer sarà peggio di prima.</p><h3 id="182f3e67-ed45-80ab-ad5d-cf41bc9dfd3f" class="">Programmi scaricati da internet</h3><p id="182f3e67-ed45-80f1-ba5d-e40807a68dcf" class="">Su internet è pieno di guide, programmi e video che ti spiegano come rimuovere da solo un Virus. </p><p id="182f3e67-ed45-803d-99a5-d5f444ff88af" class="">Al di là del fatto che usare questi programmi è inutile se non deleterio per il tuo pc e i tuoi dati, la maggior parte di loro sono veri e propri virus che si mascherano da antivirus.</p><h3 id="182f3e67-ed45-80bf-9897-ef78bdcdcefa" class="">Formattare risolve tutto</h3><p id="182f3e67-ed45-80b5-97a3-ed7a65e32a39" class="">La formattazione non fa altro che resettare tutto il tuo computer cancellandoti tutti i dati. </p><p id="182f3e67-ed45-80cc-bd47-d94b31097f2d" class="">La cosa che pochi sanno però è che una volta formattato sul computer vanno reimpostati tutti i DRIVER, le impostazioni e i programmi necessari, cosa che i tecnici ti fanno pagare a parte.</p><h2 id="182f3e67-ed45-8074-94cc-ec7c3973e3ed" class="">100% SODDISFATTO O RIMBORSATO!</h2><p id="182f3e67-ed45-80d7-828c-e6372ac5d262" class="">Siamo talmente sicuri del nostro lavoro che se una volta arrivato a casa e che avrai provato il tuo computer non dovessi essere soddisfatto, potrai richiederci un rimborso completo.</p><p id="182f3e67-ed45-802d-9726-c5f518ff4eca" class="">Si, hai capito bene. </p><p id="182f3e67-ed45-80b3-94f0-da3642398e2b" class="">Se dopo averlo provato non dovessi essere soddisfatto, ti basterà chiamarci per riavere tutti i soldi, fino all’ultimo centesimo.</p><h2 id="182f3e67-ed45-8077-9ad8-ea51ed5ee17d" class="">RECENSIONI CLIENTI</h2><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-808b-8b18-f2e4cb6db6b1"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80ec-b059-fe52ef59e88b" class="">Cercavo qualcuno o qualcosa che mi eliminasse definitivamente i problemi di lentezza e virus che si erano insidiati nel mio pc portatile, così dopo vari tentativi inconcludenti ho dovuto comprato un nuovo pc, pensavo di aver risolto il problema ma dopo 3 mesi di utilizzo assiduo di internet ero punto e a capo…</p><p id="182f3e67-ed45-80ce-9e57-cdbd0e378874" class=""><br/>Pc lento e finestre di pubblicità che si aprivano a caso ma per fortuna tramite amici in comune ho conosciuto PcProtetto che non mi ha nemmeno fatto aprire bocca che già aveva capito di cosa avevo bisogno e con PcProtetto ha risolto tutto!<br/></p><p id="182f3e67-ed45-80f7-b16a-e43d7502291e" class=""><br/>Ora il mio pc è velocissimo e non ho più il fastidio di quella pubblicità indesiderata! grazie PcProtetto!!!<br/><br/></p><p id="182f3e67-ed45-809c-b597-f1d4362de185" class="">Manuel</p></div></figure><p id="182f3e67-ed45-8072-add2-f459bbbf435f" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80d6-a7ec-edf90a46d5d1"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80f9-9aca-cfb7cc1fbe9a" class="">Finalmente!! il mio computer ha ripreso a funzionare alla grande grazie alla sua professionalità, bravo pc protetto!!!</p><p id="182f3e67-ed45-80a1-b7dd-c552c393f371" class=""><br/>Antonino<br/></p></div></figure><p id="182f3e67-ed45-8099-9305-e00ffa93f879" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80c3-8939-f056bfc59b7b"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-801d-aa8b-ff73174610d7" class="">Avevo un problema al pc, per colpa di un Virus la solita pagina iniziale di Google era stata sostituita con una pagina pubblicitaria che non riuscivo a fare andare via. </p><p id="182f3e67-ed45-80bb-b590-c2a8c1683281" class="">
+</p><p id="182f3e67-ed45-805b-9afd-d7de7e009017" class="">Mi sono affidato a PcProtetto, risolto il problema in 2 ore, ottimo servizio post riparazione.</p><p id="182f3e67-ed45-80ff-8b2b-e993e25381cb" class="">
+</p><p id="182f3e67-ed45-801e-8d5c-cefbb246e8a7" class="">Paolo </p></div></figure><p id="182f3e67-ed45-8073-8adf-d6dd96918ca6" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80ca-a593-f359c5dfe396"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80eb-8821-d9f2617c9132" class="">Riparati e rimessi a nuovo 2 Mac, lavoro eseguito velocemente e a ottimi prezzi, grazie mille.</p><p id="182f3e67-ed45-8067-833a-d1acfb9a7265" class="">
+</p><p id="182f3e67-ed45-8051-95c0-ecf3c1d40cb8" class="">Roberto</p></div></figure><p id="182f3e67-ed45-8069-a64e-f8995cb247e8" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8051-a5fe-cdf7555a3c46"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80b2-bed5-cdefa967476e" class="">Il mio portatile era impossibile usarlo, peggiorava di giorno in giorno, l’ho portato a PcProtetto e, in pochissimo tempo, è tornato come nuovo. </p><p id="182f3e67-ed45-80b5-a24d-e1668c27f3c7" class="">Bravo PcProtetto, rapido, professionale, disponibile.</p><p id="182f3e67-ed45-80ec-9a62-f7734a69dc0d" class="">
+</p><p id="182f3e67-ed45-801d-b569-d00bca4b6eaa" class="">Nelson </p></div></figure><p id="182f3e67-ed45-80f6-aaa0-cde03ae99146" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-802e-9bec-e3adfd366799"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-8009-95eb-e8c1df573642" class="">Grande disponibilità professionale di PcProtetto che in un ora al sabato pomeriggio mi ha pulito da virus il pc. </p><p id="182f3e67-ed45-8008-891f-d3dc18140486" class="">Prezzo onestissimo.</p><p id="182f3e67-ed45-8070-b3b3-f5c06afcab3d" class="">
+</p><p id="182f3e67-ed45-8015-9d59-e3e8b62a4edd" class="">Francesco Esposito</p></div></figure><p id="182f3e67-ed45-800b-b9fe-f07ac09648c6" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-805b-aced-da927ce270fa"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-809e-aa09-dd140e737ea5" class="">Tutto ok, risolta la lentezza del pc e finalmente finito il contrasto tra due antivirus che rallentavano le operazioni.</p><p id="182f3e67-ed45-802b-a737-d9791893be9d" class="">Cortesia, chiarezza e professionalità sono la cornice del cliente soddisfatto.</p><p id="182f3e67-ed45-809f-907c-e71d36a7f73d" class="">
+</p><p id="182f3e67-ed45-809e-a35f-df1ca002672e" class="">Daniela</p></div></figure><p id="182f3e67-ed45-8035-89df-c08c01210cc4" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-808e-b1c2-d48ba4f71f99"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-807b-95fd-d521f4cc9044" class="">Una delle cose più difficili per un utilizzatore di Pc/Mac è quella di riuscire a capire in modo semplice come “tirarsi fuori” in situazioni di emergenza. </p><p id="182f3e67-ed45-80f2-a9e4-e15690f892af" class="">PcProtetto ha questa incredibile capacità di spiegarti le cose in modo assolutamente semplice adeguandosi al tuo livello di assorbimento delle informazioni.</p><p id="182f3e67-ed45-8053-9f7a-c061e8d93bd8" class="">Oggi non ci penso proprio ad eseguire una qualsiasi operazione di ripristino o settaggio di funzioni che mettono a rischio il mio Mac senza prima avere il suo benestare.</p><p id="182f3e67-ed45-8070-bbca-f772aba7008e" class=""> Ed è stato l’unico a spiegarmi i motivi per cui è consigiabile installare un antivirus anche sul mac.</p><p id="182f3e67-ed45-80a7-92b1-f441bec2b114" class="">Se hai necessità di proteggere o ripristinare il tuo Pc o Mac devi chiamare PcProtetto appena hai terminato di leggere questa recensione.</p><p id="182f3e67-ed45-80e3-a2f3-d2da034ecda5" class="">Grazie PcProtetto.</p><p id="182f3e67-ed45-80e3-9c2f-d2ceee609eff" class="">
+</p><p id="182f3e67-ed45-8077-b861-e6271fb7d889" class="">Alessandro</p></div></figure><p id="182f3e67-ed45-8025-a984-f98d1585b63e" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-808e-aec0-c3b56bf86b71"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-8084-9fbb-dd48efc3b474" class="">All’inizio ero molto scettico, di messaggi così ne arrivano tutti i giorni, poi mi sono deciso a provare a far riparare il mio computer da pc-protetto.</p><p id="182f3e67-ed45-80b7-9d3e-fd7af1343d97" class="">Persona molto cordiale, sincero, preparato e cosa non indifferente non oneroso, quindi non posso che parlarne bene ed invito chi ha qualche dubbio in proposito di provare a servirsi di PcProtetto per riparare il computer….</p><p id="182f3e67-ed45-80a2-8822-fd07e9e1ab30" class="">grazie per il lavoro svolto.</p><p id="182f3e67-ed45-80ec-96f4-e53febcc6b33" class="">
+</p><p id="182f3e67-ed45-80f7-bcf2-e46590648531" class="">Gianni</p></div></figure><p id="182f3e67-ed45-80ce-b2e8-c50a7ea144bd" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80f5-b899-fe8b57e480e1"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-804d-a8f1-e20b07b8e4f3" class="">Professionalità, serietà e diciamolo anche simpatia sono i punti che caratterizzano PcProtetto, secondo il mio parere.</p><p id="182f3e67-ed45-806e-9f18-e9f05d03cd50" class="">In pochissimo tempo a sistemato a puntino il mio pc mettendosi subito a disposizione ma il bello di tutto è che non è stato necessario cancellare tutti i file e fare salvataggi di documenti, lo consiglio a tutti quelli che hanno problemi con il proprio computer e anche a chi crede di non averne.</p><p id="182f3e67-ed45-80cb-97e7-f5b1cd40f4fe" class="">
+</p><p id="182f3e67-ed45-80d5-9c72-c9c550c7c9a7" class="">Camillo</p></div></figure><p id="182f3e67-ed45-8068-8ec2-cfbbe699d5b3" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80e7-a8eb-cc784df256fc"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-804e-b705-fc677a78c0b3" class="">Il mio computer sembrava ormai inutilizzabile, non riuscivo ad aprire i miei file, non si connetteva a internet, niente di niente. </p><p id="182f3e67-ed45-805d-aae5-ccde496d6141" class="">Ho trovato Pc Protetto e l’hanno riparato alla perfezione, recuperando anche tutti quello che c’era sull’hard disk danneggiato.</p><p id="182f3e67-ed45-8012-b506-cc01d883e22e" class="">Sono stati veloci e gentili e hanno lavorato benissimo.</p><p id="182f3e67-ed45-80ae-be29-dec6e136bc71" class="">
+</p><p id="182f3e67-ed45-8071-ab7e-de213ee4c440" class="">Elena</p></div></figure><p id="182f3e67-ed45-8036-a180-e516c70bedef" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80a3-86c4-e1af3950cb03"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80ef-94ca-f0d190fc4b6e" class="">Il Pc che hai riparato è perfettamente funzionante, è veloce, pulito risponde benissimo ai comandi.</p><p id="182f3e67-ed45-80ec-82de-f57d25656f2e" class="">Non mi sembra vero che al mattino pensavo di dover gettare il mio pc a venti giorni dalla laurea, e alle 18:30 della stessa sera ritrovo un pc che sembra uscito da Mediaworld completamente ristrutturato.</p><p id="182f3e67-ed45-8082-864a-c021fa1b793f" class="">Nel caso dovessi avere problemi non esiterà a venire in negozio, o a scriverti per dubbi eventuali. Grazie di cuore prezzo e professionalità eccellenti.</p><p id="182f3e67-ed45-8095-85e6-e823af3c8337" class="">
+</p><p id="182f3e67-ed45-8011-b5bc-da78654016f1" class="">Valeria </p></div></figure><p id="182f3e67-ed45-809c-b8f7-d59c82399a78" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-809d-bf0f-fb3d01875062"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80c6-9228-ce3f866d4b7e" class="">Ho avuto varie volte bisogno di aiuto per il mio PC una in modo drastico. </p><p id="182f3e67-ed45-804d-a010-df850998126a" class="">PcProtetto ha sempre trovato il modo di riassestarmelo renderlo più sicuro e veloce. Cosa dire di lui, se non ci fosse bisognerebbe inventarlo.</p><p id="182f3e67-ed45-804c-8e4d-d5c84884c520" class="">In un ambiente in cui navigano parecchi cialtroni tu sei un’ancora di salvezza. </p><p id="182f3e67-ed45-80bb-8d3d-e997f7aa5647" class="">I tuoi consigli sull’uso del computer sicuramente aiutano ad usarlo senza cadere in agguati plateali. </p><p id="182f3e67-ed45-8089-8b90-feba4f1d0a7c" class="">Ti saluto tanto rimani cosi e vedrai che i clienti non ti mancheranno mai.</p><p id="182f3e67-ed45-80bb-b135-fe908e6cf6df" class="">
+</p><p id="182f3e67-ed45-80de-af7d-d7619a68829e" class="">Marco </p></div></figure><p id="182f3e67-ed45-80b1-aa2d-c51053f24503" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8066-9a4f-eaead51e2a18"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80ba-af69-d657c42dbcdb" class="">Prima di conoscere PC PROTETTO non sapevo mai a chi affidare la sicurezza del mio computer. </p><p id="182f3e67-ed45-802b-948b-f4475836bf49" class="">Così, molto spesso, privo di un antivirus decente, mi sono trovato da un giorno all’altro senza più nulla del mio lavoro elettronico (quindi del 97% del mio lavoro).</p><p id="182f3e67-ed45-806e-b6e0-d5e31465d9ec" class="">Preventivi, programmi, ordini, business plan, ecc, spariti per sempre.</p><p id="182f3e67-ed45-804e-8e6f-e560067475af" class="">Inutile spiegare il danno economico perché solo il ricordo mi fa star male.</p><p id="182f3e67-ed45-80d4-a456-e09109530af9" class="">Per fortuna ho conosciuto PC PROTETTO, oggi posso andare a letto tranquillo. </p><p id="182f3e67-ed45-8028-865f-ee435a451980" class="">Lo consiglio a tutti quelli che come me vivono connessi e hanno bisogno del massimo livello di protezione per il proprio lavoro.</p><p id="182f3e67-ed45-800a-b25b-d8d2e41cd455" class="">
+</p><p id="182f3e67-ed45-80ef-9ecd-e79c60eadf8a" class="">Mattia</p></div></figure><p id="182f3e67-ed45-80a0-8a8a-e92337b18b58" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-801d-a8e9-c60abcb2927f"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80e8-91b0-f104c457bf2f" class="">Eccellente… Il mio Pc va divinamente! Grande PcProtetto! Veloce ed efficiente</p><p id="182f3e67-ed45-80dc-b3e4-ceb2c9354acd" class="">
+</p><p id="182f3e67-ed45-80a7-b5d2-c3dcd68ac40f" class="">Sara</p></div></figure><p id="182f3e67-ed45-8031-a111-f5aa3738322a" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80c5-8049-c99bb8f8e8d5"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-808b-95fb-e6d2bbb44668" class="">Faccio i complimenti per la disponibilità e la velocità nel fare preventivo e lavoro veramente bravi!!!</p><p id="182f3e67-ed45-80b8-a20c-c101cc97cfc0" class="">
+</p><p id="182f3e67-ed45-8096-a80d-d03865ef0393" class="">Luigi</p></div></figure><p id="182f3e67-ed45-80ec-a952-d08d8ce3cabe" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8024-a787-c92ffe54ca9d"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-804b-9cf2-c252447436be" class="">Oltre l’eccellenza per una professionalita’ fuori dal comune, ho riscontrato nella persona di PcProtetto una cortesia e una gentilezza super, che dire, se avete qualche problema con il vostro computer non avete dubbi, rivolgetevi al pc protetto per risolvere il vostro problema con persone altamente qualificate e con tanta, tanta gentilezza, non ve ne pentirete!!</p><p id="182f3e67-ed45-808b-9da4-dd41d26bf06b" class="">
+</p><p id="182f3e67-ed45-809b-961a-f81f410576c3" class="">Pino</p></div></figure><p id="182f3e67-ed45-8024-b4e8-fd32d525c5e0" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-805e-a696-d0e95986c7e7"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-809a-8fa2-e75fba7666c6" class="">Lo consiglierei a chiunque, ho trovato grande serieta’, mantiene quello che dice, nulla di piu’ e nulla di meno che un grande professionista, si’…chirurgo nel cercare e estirpare virus, “Primario” nel ridarti fiducia del lavoro fatto.</p><p id="182f3e67-ed45-8023-9ed7-f14027d2f5d9" class="">Grazie PcProtetto, e ti meriti tutte le 5 stelle.</p><p id="182f3e67-ed45-80c1-9dab-d6d466a0815a" class="">
+</p><p id="182f3e67-ed45-8018-b23b-c16de96b791c" class="">Luciano</p></div></figure><p id="182f3e67-ed45-8081-ae59-ca4d721a80c6" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-800b-9483-f716ad17b771"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80a4-b533-d488cd21a203" class="">Ho conosciuto PcProtetto, grazie a facebook, bravo ragazzo, (io ho 65 anni) e vero professionista. </p><p id="182f3e67-ed45-80a4-80c4-ecc319acf5ca" class="">Ho portato il mio PC alle ore 10,30 e alle ore 12,00 era già pronto, funzionante e veloce. </p><p id="182f3e67-ed45-8027-9153-c1fe704df8b0" class="">Devo ammettere che ero molto scettico, fortunatamente ho trovato gentilezza e professionalità. </p><p id="182f3e67-ed45-8011-8326-c24a78dab588" class="">Consiglio vivamente, anche solo per curiosità.</p><p id="182f3e67-ed45-8053-90ba-f7360ce4d307" class="">
+</p><p id="182f3e67-ed45-806a-a603-f51ecb267860" class="">Armando</p></div></figure><p id="182f3e67-ed45-8005-9f28-ebd59d8ff7e6" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-806d-a7ab-e296b202d072"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80f0-8f5b-e7c13ab08a7c" class="">Avevo smarrito la password del pc ed inoltro il mio vecchio acer dava segni di stanchezza.</p><p id="182f3e67-ed45-809f-a230-e65a59dfed5b" class="">Oortato da PcProtetto che in un tempo veramente rapido lo ha ripristinato e donato lo smalto dei giorni migliori. </p><p id="182f3e67-ed45-80af-86b8-d7ab40482c29" class="">Dimenticavo, ad un costo ragionevole. </p><p id="182f3e67-ed45-8094-a371-c65e903b4254" class="">Grazie PcProtetto.</p><p id="182f3e67-ed45-80ed-b14b-d59db861d723" class="">
+</p><p id="182f3e67-ed45-8002-8827-cf7a252b90f0" class="">Gabriele</p></div></figure><p id="182f3e67-ed45-8091-8366-da83f23fcf33" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-804d-bd7e-cb646fd3019e"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-8015-a6b9-e980e7df8771" class="">Il mio pc dopo pochi minuti dall’accensioni si spegneva.</p><p id="182f3e67-ed45-80d5-90a5-c934c6e19701" class="">Altri ESPERTI mi avevano fatto cambiare alimentatore, scheda video, senza arrivare a nulla.</p><p id="182f3e67-ed45-80aa-a708-f7fe7536543d" class="">Portato da PcProtetto ho risolto il problema in poco tempo e con poca spesa.</p><p id="182f3e67-ed45-8020-adb0-d1f0487f6754" class="">Grazie.</p><p id="183f3e67-ed45-80fb-8f42-c0ccae2ee411" class="">
+</p><p id="182f3e67-ed45-8043-90d9-cdc670d251a6" class="">Paolo</p></div></figure><p id="182f3e67-ed45-80e1-b6aa-cbf802d0e91e" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8080-882c-d91f37eb80a9"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80fa-ade5-ffa633bc81fa" class="">Il mio PC era un po’ lento, non da impazzire, ma lento… tanto che, preferivo usare lo smartphone per le mie ricerche in internet. </p><p id="182f3e67-ed45-808d-b547-f8edc3aa41ad" class="">Ho scritto a PC protetto la sera prima di cena e, dopo un minuto, mi ha risposto, con una cortesia davvero rara al giorno d’oggi. </p><p id="182f3e67-ed45-80ab-bb84-f223e541ace8" class="">Ci siamo accordati per il giorno dopo, alle 10 il PC da lui. </p><p id="182f3e67-ed45-80c3-a5c1-e3921b00f07b" class="">Ho portato il PC, mi ha detto che, salvo danni imprevisti e imprevedibili, prima di sera, quando chiude alle 19.00, sarei potuto passare e ritirarlo. </p><p id="182f3e67-ed45-8043-abf0-dba83cf3e3e5" class="">In realtà, alle 17.00 mi è arrivato un messaggio per avvisarmi che il PC era pronto. </p><p id="182f3e67-ed45-80a6-986f-e5898ef8619b" class="">Sono passato, in quel negozio che fa tanto Bill Gates o Steve Jobs, all’inizio nei loro garage , ritirato il PC, pagato davvero una cifra adeguata (in realtà molto poco…ma non facciamoglielo sapere, anche se lui lo sa’ da se…). </p><p id="182f3e67-ed45-801d-8753-d1036b6eb541" class="">Il mio PC era bello pronto, pulito e imballato e, soprattutto, arrivato a casa, era come nuovo!</p><p id="182f3e67-ed45-8067-9af7-fc99e0554bf2" class="">Fidatevi, voi che avete paura anche solo a scrivere o telefonare, ne vale DAVVERO la pena. </p><p id="182f3e67-ed45-8037-add8-dbcf5737a1c0" class="">In più mi ha regalato il suo libretto per riconoscere i sintomi del PC malato. </p><p id="182f3e67-ed45-8005-96a2-da8c8464444a" class="">Se provate ad immaginare il tecnico e la situazione ideale, ecco, quello è PC protetto e il suo fondatore!</p><p id="182f3e67-ed45-8094-942e-c7693948120c" class="">
+</p><p id="182f3e67-ed45-806a-8b5e-dcd9b7752e17" class="">Marzio</p></div></figure><p id="182f3e67-ed45-8082-a8fe-d62c9d82151f" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8006-843c-dac536258f03"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-80a6-98fc-ee837106e832" class="">Confermo che la mia macchina seppur ormai anziana si è ripresa completamente e per quanto riguarda le prestazioni riesco ancora a lavorarci il che non lo davo per scontato.</p><p id="182f3e67-ed45-80c3-9007-d3dfc3749cc4" class="">
+</p><p id="182f3e67-ed45-8085-ae3f-dd48fe53047d" class="">Elena </p></div></figure><p id="182f3e67-ed45-80a9-a107-d3a29231632c" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8094-afda-dde0dccedb93"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-8004-8e86-d5889e2a16b7" class="">Il servizio è stato velocissimo – nel pomeriggio dello stesso giorno stavo già andando a ritirarlo – mi è stato spiegato il lavoro fatto ed ho pagato un compenso onestissimo.<br/><br/></p><p id="182f3e67-ed45-8032-92c1-d199a1c707a4" class="">Omar </p></div></figure><p id="182f3e67-ed45-80a7-81d0-d83afe8e4e11" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80eb-b6a3-f3a349fe8e26"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/chat-user_blue.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-8019-86b0-f3b4860e2063" class="">Il mio pc un po’ datato era lento e funzionava malissimo, PcProtetto un vero professionista in poco tempo ha ridato la vita al mio vecchio pc, ora va benissimo PcProtetto sei bravissimo</p><p id="182f3e67-ed45-80e7-afc2-e9045b33db4a" class="">
+</p><p id="182f3e67-ed45-8027-a344-ed478f9d651c" class="">Maria </p></div></figure><h2 id="182f3e67-ed45-80fd-9e3e-c570860a2cc7" class="">I NOSTRI SERVIZI di riparazione software </h2><h3 id="182f3e67-ed45-80fc-8948-ff6f9a61b78d" class="">Riparazione + Antivirus</h3><p id="182f3e67-ed45-806f-b57b-f6150d848e46" class="">€ 100 </p><p id="182f3e67-ed45-8044-8faa-d6b18ed45212" class="">invece di € 130</p><ul id="182f3e67-ed45-801f-b437-fc5bb3e06344" class="bulleted-list"><li style="list-style-type:disc">Risoluzione Problemi (software)</li></ul><ul id="182f3e67-ed45-80bf-bb1e-d36027bf77ce" class="bulleted-list"><li style="list-style-type:disc">Rimozione Virus</li></ul><ul id="182f3e67-ed45-8012-a44b-c80f9f2399d3" class="bulleted-list"><li style="list-style-type:disc">Pulizia (software)</li></ul><ul id="182f3e67-ed45-8089-95b0-c125d13c6b59" class="bulleted-list"><li style="list-style-type:disc">Velocizzazione (software)</li></ul><ul id="182f3e67-ed45-8003-88e0-fd6025fdda26" class="bulleted-list"><li style="list-style-type:disc">Antivirus Completo - durata 1 anno -  “Kaspersky Standard”</li></ul><h3 id="182f3e67-ed45-8031-a813-ef0d5df54a88" class="">Riparazione</h3><p id="182f3e67-ed45-80b2-b2a6-d47c688f8e6f" class="">€ 50 </p><p id="182f3e67-ed45-800f-a4e6-edd35a5c6e14" class="">invece di € 80</p><ul id="182f3e67-ed45-80e5-9cb6-f65d8393640f" class="bulleted-list"><li style="list-style-type:disc">Risoluzione Problemi (software)</li></ul><ul id="182f3e67-ed45-8055-9c44-e62cda3a0302" class="bulleted-list"><li style="list-style-type:disc">Rimozione Virus</li></ul><ul id="182f3e67-ed45-80a7-b911-d40e1a074dd3" class="bulleted-list"><li style="list-style-type:disc">Pulizia (software)</li></ul><ul id="182f3e67-ed45-8039-9d07-d213fe88aa4e" class="bulleted-list"><li style="list-style-type:disc">Velocizzazione (software)</li></ul><p id="182f3e67-ed45-8044-ac44-fb5a54dc62fc" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80f9-a758-ebe7eacd3832"><div style="font-size:1.5em"><span class="icon">💶</span></div><div style="width:100%"><p id="182f3e67-ed45-8009-a93e-d6d0fae74717" class="">[ * Pagamento in contanti ]</p></div></figure><h2 id="182f3e67-ed45-802b-981b-cd238feb80b0" class="">Altre informazioni </h2><p id="182f3e67-ed45-808a-953f-ead115da9bfc" class="">PcProtetto, il primo ed unico servizio collaudato su centinaia di pc che risolve i problemi del tuo PC, elimina i Virus e lo rende veloce e performante come una volta.</p><p id="182f3e67-ed45-8027-8227-e6bf718c8d4a" class="">PcProtetto viene spesso chiamato da importanti aziende per <em><strong><span style="border-bottom:0.05em solid">consulenze</span></strong></em>.</p><p id="182f3e67-ed45-800d-bff8-ec8ec15b777f" class="">CHIAMAMI </p><p id="182f3e67-ed45-80f6-a76e-f4c20fe0ed47" class="">Siamo a VERONA</p><p id="182f3e67-ed45-80c6-8e8f-ef94dd572da8" class="">
+</p><figure class="block-color-teal callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80f6-a327-e362a917e446"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/alien-pixel_green.svg"/></div><div style="width:100%"><p id="182f3e67-ed45-801d-9f61-db43384a350f" class="">Sapevi che il 77% dei computer in Italia è infetto da un Virus e che il 97% delle persone infettate non ne ha neanche minimamente idea?</p></div></figure><h2 id="182f3e67-ed45-8092-ae0d-e421948fd3a9" class="">PcProtetto [Sintesi]</h2><p id="182f3e67-ed45-80cd-b507-fb42a9767174" class=""><strong>PcProtetto è un servizio specializzato nella risoluzione di problemi legati a </strong><em><strong><span style="border-bottom:0.05em solid">virus e rallentamenti dei computer.</span></strong></em><em><span style="border-bottom:0.05em solid"> </span></em></p><p id="182f3e67-ed45-80f9-87e6-c047341e7dda" class="">L&#x27;azienda offre una diagnosi e una riparazione rapida ed efficace, garantendo la restituzione del PC nelle stesse condizioni di prima, ma più veloce e sicuro.</p><p id="182f3e67-ed45-802c-a257-f5c1dcb36947" class=""><strong>Vantaggi offerti da PcProtetto:</strong></p><ul id="182f3e67-ed45-80fe-8aef-d968b31d7677" class="bulleted-list"><li style="list-style-type:disc"><em><strong><span style="border-bottom:0.05em solid">Rimozione virus</span></strong></em><strong>:</strong> Elimina virus e malware che causano lentezza e malfunzionamenti.</li></ul><ul id="182f3e67-ed45-803c-a634-edf7541d51dd" class="bulleted-list"><li style="list-style-type:disc"><em><strong><span style="border-bottom:0.05em solid">Velocizzazione del PC</span></strong></em><strong>:</strong> Ottimizza le prestazioni del computer, rendendolo più veloce e reattivo.</li></ul><ul id="182f3e67-ed45-807a-a66a-f95b2d7b700f" class="bulleted-list"><li style="list-style-type:disc"><strong>Salvaguardia dei dati:</strong> Assicura che i dati personali non vengano cancellati o danneggiati durante la riparazione.</li></ul><ul id="182f3e67-ed45-8063-8746-ca5bf5fc63ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Assistenza rapida:</strong> Riparazione entro 24 ore.</li></ul><ul id="182f3e67-ed45-80e3-bb96-e1bc548c9b77" class="bulleted-list"><li style="list-style-type:disc"><strong>Garanzia di soddisfazione:</strong> Rimborso completo in caso di insoddisfazione.</li></ul><ul id="182f3e67-ed45-806f-95b1-dedb3ee4ba67" class="bulleted-list"><li style="list-style-type:disc"><strong>Esperienza:</strong> Tecnici specializzati nella risoluzione di problemi software.</li></ul><ul id="182f3e67-ed45-8099-89af-f82257d48591" class="bulleted-list"><li style="list-style-type:disc"><strong>Trasparenza:</strong> Spiegazione dei falsi miti sui problemi dei computer.</li></ul><ul id="182f3e67-ed45-801a-ac35-dbd90ca43cc8" class="bulleted-list"><li style="list-style-type:disc"><strong>Prezzi competitivi:</strong> Offerte e sconti.</li></ul><ul id="182f3e67-ed45-803d-9026-ed2fcc03241d" class="bulleted-list"><li style="list-style-type:disc"><strong>Assistenza post-vendita:</strong> Disponibilità a rispondere a domande e fornire supporto.</li></ul><p id="182f3e67-ed45-80f3-961b-d9aa24b59d48" class=""><strong>Problemi risolti da PcProtetto:</strong></p><ul id="182f3e67-ed45-805a-89f5-e6af85f61080" class="bulleted-list"><li style="list-style-type:disc"><em><span style="border-bottom:0.05em solid">Computer </span></em><span style="border-bottom:0.05em solid">lento</span></li></ul><ul id="182f3e67-ed45-802d-bcbd-d69aab9f8656" class="bulleted-list"><li style="list-style-type:disc"><em><span style="border-bottom:0.05em solid">Virus e malware</span></em></li></ul><ul id="182f3e67-ed45-8017-b492-c4b6b607810b" class="bulleted-list"><li style="list-style-type:disc">Problemi di avvio</li></ul><ul id="182f3e67-ed45-8014-a3b1-c78a211b25a0" class="bulleted-list"><li style="list-style-type:disc">Finestre che si aprono da sole</li></ul><ul id="182f3e67-ed45-80d3-8c4b-d8236b79048b" class="bulleted-list"><li style="list-style-type:disc">Programmi che si bloccano</li></ul><ul id="182f3e67-ed45-806c-8bbe-c12952db3618" class="bulleted-list"><li style="list-style-type:disc">Impossibilità di accedere a file o a Internet</li></ul><p id="182f3e67-ed45-80d9-b524-eb6561e70bd0" class=""><strong>Perché scegliere PcProtetto:</strong></p><ul id="182f3e67-ed45-8002-a34d-ea2d98506079" class="bulleted-list"><li style="list-style-type:disc"><strong>Professionalità:</strong> Tecnici esperti e qualificati.</li></ul><ul id="182f3e67-ed45-80d9-8e10-ec1a8ab5e44e" class="bulleted-list"><li style="list-style-type:disc"><strong>Rapidità:</strong> Riparazioni rapide ed efficienti.</li></ul><ul id="182f3e67-ed45-800f-be8e-fd36fe64b1ea" class="bulleted-list"><li style="list-style-type:disc"><strong>Affidabilità:</strong> Garanzia di soddisfazione e numerose recensioni positive.</li></ul><ul id="182f3e67-ed45-804f-91f7-e2e470d96e5a" class="bulleted-list"><li style="list-style-type:disc"><strong>Trasparenza:</strong> Spiegazione chiara dei problemi e delle soluzioni.</li></ul><ul id="182f3e67-ed45-80ba-b988-ce08770c3a78" class="bulleted-list"><li style="list-style-type:disc"><strong>Prezzi competitivi:</strong> Offerte e sconti.</li></ul><p id="182f3e67-ed45-8036-b16b-f1b92293b5cf" class=""><strong>In conclusione,</strong> PcProtetto si presenta come una soluzione affidabile e conveniente per risolvere i problemi del tuo computer. </p><p id="182f3e67-ed45-808b-ad87-dcec7cb81ded" class="">Offre un servizio completo, dalla diagnosi alla riparazione, garantendo la massima soddisfazione del cliente.</p><h2 id="182f3e67-ed45-8011-bb47-ef32d5a21f8a" class="">Altri servizi informatici </h2><ul id="182f3e67-ed45-802f-9941-d08ae1883b40" class="bulleted-list"><li style="list-style-type:disc">Rimozione Virus: Effettuiamo pulizia di pc infettati da Virus e Spyware (<em><mark class="highlight-red"><strong><span style="border-bottom:0.05em solid">PcProtetto</span></strong></mark></em>).</li></ul><ul id="182f3e67-ed45-80d3-9bc5-c28fb359701f" class="bulleted-list"><li style="list-style-type:disc">Assistenza software <em><strong><span style="border-bottom:0.05em solid">Smartphone</span></strong></em> (Android, Apple iPhone iOS) </li></ul><ul id="182f3e67-ed45-80a2-af3d-e7e0319b760e" class="bulleted-list"><li style="list-style-type:disc">Assistenza software Tablet (Android, Apple iPad iPadOS, Microsoft Windows).</li></ul><ul id="182f3e67-ed45-80a9-b2c6-cd77007b94d0" class="bulleted-list"><li style="list-style-type:disc"><em><strong><span style="border-bottom:0.05em solid">Consulenza tecnica</span></strong></em> informatica: <ul id="182f3e67-ed45-806f-b818-d2ecb12a6e7b" class="bulleted-list"><li style="list-style-type:circle">computer, smartphone, tablet, </li></ul><ul id="182f3e67-ed45-806f-af80-fec20f477a9b" class="bulleted-list"><li style="list-style-type:circle">dispositivi, periferiche, webcam, stampanti, scanner, adattatori, </li></ul><ul id="182f3e67-ed45-80ab-a5d4-fcf5a607a3f6" class="bulleted-list"><li style="list-style-type:circle">contratti telefonia e dati internet.</li></ul></li></ul><ul id="182f3e67-ed45-801e-9093-ffb7e8f20d9a" class="bulleted-list"><li style="list-style-type:disc">Installazione e configurazione <em><strong><span style="border-bottom:0.05em solid">stampante e scanner</span></strong></em>.</li></ul><ul id="182f3e67-ed45-809c-8b97-fbc2bdb4aae1" class="bulleted-list"><li style="list-style-type:disc"><em><strong><span style="border-bottom:0.05em solid">Manutenzione reti &amp; Collegamento ad Internet.</span></strong></em></li></ul><ul id="182f3e67-ed45-8030-943a-f39ecc3d3982" class="bulleted-list"><li style="list-style-type:disc">Assistenza tecnica <ul id="182f3e67-ed45-80a8-9a0d-df784492061e" class="bulleted-list"><li style="list-style-type:circle">Assistenza tecnica specializzata per aziende e privati, intervenendo in tempi brevi su Verona e provincia direttamente presso il vostro ufficio o domicilio (presso casa vostra).</li></ul><ul id="182f3e67-ed45-8087-80d5-dc9b62df3aa2" class="bulleted-list"><li style="list-style-type:circle">Offriamo servizio di assistenza tecnica on site su PC Windows e Mac con sopralluogo gratuito.</li></ul></li></ul><ul id="182f3e67-ed45-808b-9c91-e66928604150" class="bulleted-list"><li style="list-style-type:disc">Hardware &amp; Software: Interveniamo con piani di manutenzione e riparazione ordinaria o straordinaria su computer di qualsiasi marca o modello.</li></ul><ul id="182f3e67-ed45-80f3-97a6-f977caa83c50" class="bulleted-list"><li style="list-style-type:disc">Assemblaggio PC: Realizziamo PC Ufficio, Workstation o Gaming completamente su misura.</li></ul><ul id="182f3e67-ed45-807f-a37f-cccd09f67e8b" class="bulleted-list"><li style="list-style-type:disc">Creazione siti web (<em><mark class="highlight-red"><strong><span style="border-bottom:0.05em solid">Incrementa v4.0</span></strong></mark></em>).</li></ul><p id="183f3e67-ed45-80ce-853e-cd41b692607d" class="">
+</p><figure class="block-color-brown_background callout" style="white-space:pre-wrap;display:flex" id="183f3e67-ed45-8005-84e1-e6dcef6a9320"><div style="font-size:1.5em"><span class="icon">💶</span></div><div style="width:100%"><p id="183f3e67-ed45-8009-b6f4-e440db417d1b" class="">Pacchetto per sito web aziendale - Sito Vetrina Base (5 Pagine)</p><ol type="1" id="183f3e67-ed45-8050-a586-f3fe01d9d12a" class="numbered-list" start="1"><li>Home - Stile Landing Page (One Page | 1 pagina) -</li></ol><ol type="1" id="183f3e67-ed45-8099-ba9c-e82fad46232a" class="numbered-list" start="2"><li>Presentazione Azienda - Chi siamo</li></ol><ol type="1" id="183f3e67-ed45-8040-a15c-f171514ed610" class="numbered-list" start="3"><li>Servizi / Prodotti<ol type="a" id="183f3e67-ed45-802a-9061-d9deb4600eb4" class="numbered-list" start="1"><li>Foto Gallery / Portfolio / Realizzazioni</li></ol><ol type="a" id="183f3e67-ed45-8055-8e6c-ff542963af28" class="numbered-list" start="2"><li>Testimonianze        </li></ol></li></ol><ol type="1" id="183f3e67-ed45-80a1-9708-c6e30c47eb47" class="numbered-list" start="4"><li>Contatti &amp; Dove Siamo      </li></ol><ol type="1" id="183f3e67-ed45-806f-8166-f76de6d33727" class="numbered-list" start="5"><li>Privacy Policy / Cookie Policy </li></ol><p id="183f3e67-ed45-80cf-8291-d003395e8071" class="">
+</p><p id="183f3e67-ed45-808e-a6b8-c95cd0fc7225" class=""> PREZZO </p><ul id="183f3e67-ed45-801c-a612-c7777799c6f3" class="bulleted-list"><li style="list-style-type:disc">800€ - Offerta speciale      <ul id="183f3e67-ed45-8033-bfea-f1a5f9d0cbd4" class="bulleted-list"><li style="list-style-type:circle">Costi: 2.000€</li></ul><ul id="183f3e67-ed45-8095-a055-fac82b258a2d" class="bulleted-list"><li style="list-style-type:circle">Canoni : 600€</li></ul></li></ul><ul id="183f3e67-ed45-80e1-9e0d-d544b197ee77" class="bulleted-list"><li style="list-style-type:disc">Costi extra:<ul id="183f3e67-ed45-80e8-934d-c3b4cc78cdf3" class="bulleted-list"><li style="list-style-type:circle">Nome Dominio + Web Hosting (mensile / annuale).</li></ul><ul id="183f3e67-ed45-806a-9992-f8173fc2c218" class="bulleted-list"><li style="list-style-type:circle">Temi, Plugin, Sicurezza e Aggiornamenti.</li></ul></li></ul><p id="183f3e67-ed45-80b3-af9f-db2731bdece5" class="">[ * Pagamento in contanti ]</p></div></figure><p id="183f3e67-ed45-80fb-a39d-dd6dd37d2dae" class="">
+</p><figure class="block-color-brown_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8003-896d-e8603e51fd11"><div style="font-size:1.5em"><span class="icon">💶</span></div><div style="width:100%"><p id="182f3e67-ed45-8002-89ae-f5906b86dcc7" class="">PREZZI ASSISTENZA INFORMATICA </p><ul id="182f3e67-ed45-80f0-9084-f17d773196b9" class="bulleted-list"><li style="list-style-type:disc">Fatturazione minima intervento 1h (1 ora)</li></ul><ul id="182f3e67-ed45-80f3-98c3-dea767f272d8" class="bulleted-list"><li style="list-style-type:disc">60 €/ora [1° ora] + <em><strong><span style="border-bottom:0.05em solid">50 €/ora</span></strong></em> [le successive ore] <ul id="182f3e67-ed45-805c-8805-ffc5fb5232f3" class="bulleted-list"><li style="list-style-type:circle">1 ora: 60€ </li></ul><ul id="182f3e67-ed45-80de-a5bf-c9e54ebc052e" class="bulleted-list"><li style="list-style-type:circle">2 ore: 110€</li></ul><ul id="182f3e67-ed45-80a0-a407-ccfb9192e322" class="bulleted-list"><li style="list-style-type:circle">3 ore: 160€</li></ul><ul id="182f3e67-ed45-805d-acb0-f3ae149163d9" class="bulleted-list"><li style="list-style-type:circle">4 ore: 210€</li></ul><ul id="182f3e67-ed45-80da-a2e4-df3778fb5355" class="bulleted-list"><li style="list-style-type:circle">5 ore: 260€</li></ul></li></ul><p id="182f3e67-ed45-80e2-ab9a-c3437abd7e0c" class="">[ * Pagamento in contanti ]</p></div></figure><h2 id="182f3e67-ed45-800a-a788-cff4c2eb6a92" class="">Corsi di informatica base per adulti - NONNI DIGITALI </h2><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80bb-a524-ca57cdfde7a2"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%"><p id="182f3e67-ed45-8006-903b-fe711c6ab28b" class="">CORSI DI INFORMATICA BASE per adulti [dal 2021]</p><p id="182f3e67-ed45-801d-8d48-f37035fe59c6" class=""><br/>Insieme apprenderemo le basi del SMARTPHONE (Cellulare) e del COMPUTER  (Portatile).<br/></p><p id="182f3e67-ed45-808a-80bd-ef4849e4b44c" class=""><br/><br/><em>Il CORSO di SMARTPHONE (Cellulare) e di COMPUTER (Portatile) non è solo per la terza età (over 60), ma per tutti gli adulti che non hanno mai avvicinato un SMARTPHONE (Cellulare) o un COMPUTER (Portatile) e desiderano cominciare.</em></p><p id="182f3e67-ed45-80e2-b746-f30ae5c5046e" class="">
+</p><ul id="182f3e67-ed45-8076-8ae8-fbf4be77677f" class="bulleted-list"><li style="list-style-type:disc"><em>Quanto dura il corso? Circa 10 Lezioni, Circa 3 mesi.</em></li></ul><ul id="182f3e67-ed45-804e-991a-cf1110561df1" class="bulleted-list"><li style="list-style-type:disc"><em>Devo portare il mio computer (portatile) e/o il mio smartphone (cellulare)? Gli iscritti devono essere muniti di un dispositivo proprio.</em></li></ul><ul id="182f3e67-ed45-8008-8ace-dffe9d2dc687" class="bulleted-list"><li style="list-style-type:disc"><em>Classi Piccole: Accettiamo massimo 10 studenti per il corso; Questo ci permette di seguirti da vicino, di conoscere le tue esigenze e di risolvere ogni tuo dubbio.</em></li></ul><ul id="182f3e67-ed45-80d3-8491-c71c9d645ad0" class="bulleted-list"><li style="list-style-type:disc"><em>Approccio Pratico: Ti insegneremo la teoria, ma passeremo subito alla pratica. Siamo convinti che solo facendo si possa davvero imparare.</em></li></ul></div></figure><p id="182f3e67-ed45-80cf-815f-e92828cd5aa0" class="">
+</p><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80ea-9f03-fe6c08263d8b"><div style="font-size:1.5em"><span class="icon">📱</span></div><div style="width:100%"><ul id="182f3e67-ed45-80fe-ba0e-d3501bb0bc2a" class="bulleted-list"><li style="list-style-type:disc">Il futuro vedrà probabilmente una fusione ancora maggiore tra SMARTPHONE e COMPUTER. </li></ul><ul id="182f3e67-ed45-800e-9c41-d875fd926c2d" class="bulleted-list"><li style="list-style-type:disc">I COMPUTER verranno usati sempre più raramente a scopo domestico, ma continueranno ad essere usati solo in alcuni scopi aziendali e business.</li></ul><ul id="182f3e67-ed45-8003-bcd4-cd632d93a854" class="bulleted-list"><li style="list-style-type:disc">Dispositivi basati su SoC (CPU) ARM.</li></ul><ul id="182f3e67-ed45-8014-b8d6-d605d7e144b6" class="bulleted-list"><li style="list-style-type:disc">I TABLET sostituiranno i COMPUTER.</li></ul><ul id="182f3e67-ed45-800f-aa1b-eec62c302c76" class="bulleted-list"><li style="list-style-type:disc">Utilizzo sempre maggiore di SMARTPHONE e TABLET con <em><strong><span style="border-bottom:0.05em solid">DOCKING STATION</span></strong></em>.</li></ul><ul id="182f3e67-ed45-8009-ad19-e2852d399b1d" class="bulleted-list"><li style="list-style-type:disc">SMARTPHONE Samsung Android + <em><strong><span style="border-bottom:0.05em solid">DOCKING STATION Samsung Dex</span></strong></em>: <ul id="182f3e67-ed45-8071-963f-c0d211368f57" class="bulleted-list"><li style="list-style-type:circle">Samsung DeX è una modalità che trasforma il tuo SMARTPHONE Samsung in un vero e proprio COMPUTER.</li></ul><ul id="182f3e67-ed45-8086-bf59-ffdf5d9c94fe" class="bulleted-list"><li style="list-style-type:circle">Collegando il tuo SMARTPHONE a un monitor esterno, una tastiera e un mouse, potrai accedere a un&#x27;interfaccia desktop completa, utilizzando le tue app preferite e i tuoi file proprio come faresti su un PC tradizionale.</li></ul></li></ul></div></figure><h3 id="182f3e67-ed45-8040-a3ca-ce15821a3f87" class="">Argomenti Corso Smartphone (Cellulare) &amp; Tablet</h3><ul id="182f3e67-ed45-8099-8060-dc5cf03c4469" class="bulleted-list"><li style="list-style-type:disc">Sistema operativo:<ul id="182f3e67-ed45-8006-845b-c913e8dbfe61" class="bulleted-list"><li style="list-style-type:circle">ANDROID </li></ul><ul id="182f3e67-ed45-8022-95cb-f8ed0359dfa2" class="bulleted-list"><li style="list-style-type:circle">Apple <ul id="182f3e67-ed45-805e-a5fc-fb0de5d310b1" class="bulleted-list"><li style="list-style-type:square">Smartphone - iPhone (iOS)</li></ul><ul id="182f3e67-ed45-80b0-a7cc-ebea6721e5f5" class="bulleted-list"><li style="list-style-type:square">Tablet - iPad (iPadOS)</li></ul></li></ul></li></ul><p id="182f3e67-ed45-8064-ba09-c9df38caedb8" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-80ba-ab74-c965c83506d7"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%"><ul id="182f3e67-ed45-8052-830f-f06acf6fb3ea" class="bulleted-list"><li style="list-style-type:disc">Uso della funzionalità Telefono:<ul id="182f3e67-ed45-809d-b59d-ff90a1b6138a" class="block-color-default_background bulleted-list"><li style="list-style-type:circle">Fare chiamate,</li></ul><ul id="182f3e67-ed45-80c4-b32b-cbb9f93ed20d" class="bulleted-list"><li style="list-style-type:circle">Salvare numero in rubrica</li></ul><ul id="182f3e67-ed45-80e0-b76e-d7cbd72932cd" class="bulleted-list"><li style="list-style-type:circle">ID chiamate spam,</li></ul><ul id="182f3e67-ed45-80df-a4c6-ef9dde2191d6" class="bulleted-list"><li style="list-style-type:circle">Registro chiamate,</li></ul><ul id="182f3e67-ed45-8064-bcbb-eb43ae676118" class="bulleted-list"><li style="list-style-type:circle">Leggere e Inviare SMS,</li></ul><ul id="182f3e67-ed45-800a-96dc-e5b5f81c96d9" class="bulleted-list"><li style="list-style-type:circle">Chiamata e Usare il cellulare</li></ul></li></ul><ul id="182f3e67-ed45-808b-8ea0-e23783731800" class="bulleted-list"><li style="list-style-type:disc">Tendina:<ul id="182f3e67-ed45-8053-8793-c695fb09d46c" class="bulleted-list"><li style="list-style-type:circle">Wifi, </li></ul><ul id="182f3e67-ed45-8086-86e2-cd37e10499aa" class="bulleted-list"><li style="list-style-type:circle">Router WiFi, </li></ul><ul id="182f3e67-ed45-8034-bff6-f87b9992ad4f" class="bulleted-list"><li style="list-style-type:circle">Connessione dati, </li></ul><ul id="182f3e67-ed45-808c-a779-ccd8b273d20e" class="bulleted-list"><li style="list-style-type:circle">Aereo, </li></ul><ul id="182f3e67-ed45-8000-8361-ca82ae45b50a" class="bulleted-list"><li style="list-style-type:circle">Sincronizzazione,</li></ul><ul id="182f3e67-ed45-80cf-aabb-c5d7b1ed37bf" class="bulleted-list"><li style="list-style-type:circle"> Bluetooth,</li></ul><ul id="182f3e67-ed45-80ce-be45-ccef6c4bdbf5" class="bulleted-list"><li style="list-style-type:circle">Posizione,</li></ul><ul id="182f3e67-ed45-80aa-a97c-d83f2cdf4254" class="bulleted-list"><li style="list-style-type:circle">Volume/Silenzioso/Vibrazione,</li></ul><ul id="182f3e67-ed45-80ab-ba30-dab6e4c62582" class="bulleted-list"><li style="list-style-type:circle">Rotazione,</li></ul><ul id="182f3e67-ed45-8014-a0f3-e14e1a166f65" class="bulleted-list"><li style="list-style-type:circle">Torcia,</li></ul><ul id="182f3e67-ed45-8048-8052-ce070ed19e54" class="bulleted-list"><li style="list-style-type:circle">[BATTERIA] Risparmio energetico e Modalità notte,<ul id="182f3e67-ed45-807d-840a-f20ca27d7f24" class="bulleted-list"><li style="list-style-type:square">[BATTERIA] Ricarica dal 15% al 80%</li></ul><ul id="182f3e67-ed45-80b6-9a2c-e6ba60486ea6" class="bulleted-list"><li style="list-style-type:square">Intelligenza Artificiale Machine Learning (ML) - Adattiva    </li></ul><ul id="182f3e67-ed45-80b9-accd-d7ebf75a65da" class="bulleted-list"><li style="list-style-type:square">[BATTERIA] Non utilizzare la ricarica rapida</li></ul></li></ul><ul id="182f3e67-ed45-802c-a2c6-e9ffb022840a" class="bulleted-list"><li style="list-style-type:circle">NFC (Scambio dati a contato RFID, pagamenti NFC <ul id="182f3e67-ed45-806b-813a-fe1caa9312c2" class="bulleted-list"><li style="list-style-type:square">Contactless e sicurezza pagamenti offline / online),</li></ul></li></ul><ul id="182f3e67-ed45-8077-aa72-edad90b38531" class="bulleted-list"><li style="list-style-type:circle">Scansione QR (Tendina, Fotocamera, Download Apps Terze, Condivisione Google da foto),</li></ul><ul id="182f3e67-ed45-806f-b39d-e52b5f4dd955" class="bulleted-list"><li style="list-style-type:circle">ScreenShot (Tendina, Tasti, Gesture) / ScreenShot continuo &amp; Registrazione video schermo</li></ul></li></ul><ul id="182f3e67-ed45-80c1-afd1-ef7fbf39c3bf" class="bulleted-list"><li style="list-style-type:disc">Download, Installare, Aggiornare, Disinstallare da store ufficiale &quot;Play Store&quot;</li></ul><ul id="182f3e67-ed45-80e9-92ae-d502e6fc49a1" class="bulleted-list"><li style="list-style-type:disc">Gestione del tempo e Appuntamenti: <ul id="182f3e67-ed45-808e-890a-d51ffefe9279" class="bulleted-list"><li style="list-style-type:circle">Calendario (Google Calendario), </li></ul><ul id="182f3e67-ed45-8006-94d8-d69f5ab76b32" class="bulleted-list"><li style="list-style-type:circle">Sveglia, </li></ul><ul id="182f3e67-ed45-8001-88e7-fbd102fe7b5f" class="bulleted-list"><li style="list-style-type:circle">Timer, </li></ul><ul id="182f3e67-ed45-8098-b372-fcf7ea9abe23" class="bulleted-list"><li style="list-style-type:circle">Cronometro, </li></ul><ul id="182f3e67-ed45-8078-ba08-d7aa53665a3d" class="bulleted-list"><li style="list-style-type:circle">Nota (Google Keep),  </li></ul></li></ul><ul id="182f3e67-ed45-8066-a89b-c08525f6e5d2" class="bulleted-list"><li style="list-style-type:disc">Foto e Video: <ul id="182f3e67-ed45-80fd-a170-db59ff4d499a" class="bulleted-list"><li style="list-style-type:circle">Galleria, </li></ul><ul id="182f3e67-ed45-80e3-a6f3-eb733c250649" class="bulleted-list"><li style="list-style-type:circle">Fotocamera,</li></ul></li></ul><ul id="182f3e67-ed45-80e7-a43f-e55bc2bdb3c3" class="bulleted-list"><li style="list-style-type:disc">Gestione file o Archivio / Download</li></ul><ul id="182f3e67-ed45-8083-a230-d42561046418" class="bulleted-list"><li style="list-style-type:disc">Internet:<ul id="182f3e67-ed45-80f3-887f-e161ebf44f9f" class="bulleted-list"><li style="list-style-type:circle">Browser web - Google vs Google Chrome</li></ul><ul id="182f3e67-ed45-80bb-bef4-ea91444f4fa5" class="bulleted-list"><li style="list-style-type:circle">Cerca Google: <ul id="182f3e67-ed45-8056-8b55-c31063e6a19b" class="bulleted-list"><li style="list-style-type:square">Testo, </li></ul><ul id="182f3e67-ed45-806d-ba34-f277c27fbd49" class="bulleted-list"><li style="list-style-type:square">Microfono, </li></ul><ul id="182f3e67-ed45-80d6-b0e0-caf714ad9b99" class="bulleted-list"><li style="list-style-type:square">Camera</li></ul><ul id="182f3e67-ed45-80c9-8717-fac1cbf5056f" class="bulleted-list"><li style="list-style-type:square">Intelligenza Artificiale (Google Gemini)</li></ul></li></ul></li></ul><ul id="182f3e67-ed45-8001-9de1-d8a8b0c543ac" class="bulleted-list"><li style="list-style-type:disc">Usare indirizzo email: <ul id="182f3e67-ed45-80de-9d67-e3a5e1105e98" class="bulleted-list"><li style="list-style-type:circle">allegati, </li></ul><ul id="182f3e67-ed45-807f-984b-ea8c60d8e3a3" class="bulleted-list"><li style="list-style-type:circle">rispondi, </li></ul><ul id="182f3e67-ed45-80fb-bfec-f3b27b37aebc" class="bulleted-list"><li style="list-style-type:circle">inoltra, </li></ul><ul id="182f3e67-ed45-8025-90af-e3e5a94876e2" class="bulleted-list"><li style="list-style-type:circle">elimina, </li></ul><ul id="182f3e67-ed45-8051-a9f8-e3218bca417e" class="bulleted-list"><li style="list-style-type:circle">cestino</li></ul></li></ul><ul id="182f3e67-ed45-80a5-aebe-ed079c98a3cc" class="bulleted-list"><li style="list-style-type:disc">WhatsApp:  <ul id="182f3e67-ed45-8085-aa52-c115544fa20c" class="bulleted-list"><li style="list-style-type:circle">Videochiamate, Chiamate</li></ul><ul id="182f3e67-ed45-80a6-a08c-e77baa1ffdb9" class="bulleted-list"><li style="list-style-type:circle">Messaggi/Chat:<ul id="182f3e67-ed45-8094-ae47-e0d7d71e58a0" class="bulleted-list"><li style="list-style-type:square">Testo, </li></ul><ul id="182f3e67-ed45-80ca-a26d-cf2840466a9d" class="bulleted-list"><li style="list-style-type:square">Vocale, </li></ul><ul id="182f3e67-ed45-809f-821d-ca4795d1b590" class="bulleted-list"><li style="list-style-type:square">Foto, Immagini / Video, </li></ul><ul id="182f3e67-ed45-80d5-9489-ee6e9a4aeb75" class="bulleted-list"><li style="list-style-type:square">Posizione (GPS / Posizione), </li></ul><ul id="182f3e67-ed45-800a-85ef-c21b2e398e3a" class="bulleted-list"><li style="list-style-type:square">Documento, </li></ul><ul id="182f3e67-ed45-80a0-a3d7-ed53b642be9d" class="bulleted-list"><li style="list-style-type:square">Contatti, </li></ul><ul id="182f3e67-ed45-809a-8570-f1dc9030f79f" class="bulleted-list"><li style="list-style-type:square">Inoltra</li></ul><ul id="182f3e67-ed45-80f3-ad5a-e11e45e45bb6" class="bulleted-list"><li style="list-style-type:square"><em>Media, link e documenti</em></li></ul></li></ul><ul id="182f3e67-ed45-8087-98c0-ff0a472db85a" class="bulleted-list"><li style="list-style-type:circle">Altre impostazioni WhatsApp <ul id="182f3e67-ed45-80d1-93b3-e8a55264c256" class="bulleted-list"><li style="list-style-type:square">Cerca</li></ul><ul id="182f3e67-ed45-809f-9e6c-dc67afb68978" class="bulleted-list"><li style="list-style-type:square">Silenzia notifiche </li></ul><ul id="182f3e67-ed45-8050-9438-f4a2133b5bb6" class="bulleted-list"><li style="list-style-type:square">Messaggi effimeri (elimina in automatico per tutti a scadenza)</li></ul><ul id="182f3e67-ed45-80b2-9423-c5cc553ae8fd" class="bulleted-list"><li style="list-style-type:square">Blocca </li></ul></li></ul><ul id="182f3e67-ed45-80da-b0e4-e3dff4c7ee98" class="bulleted-list"><li style="list-style-type:circle">Impostazioni WhatsApp<ul id="182f3e67-ed45-80ae-aa72-ca2db37b57e2" class="bulleted-list"><li style="list-style-type:square">Liste (Filtri manuali chat),</li></ul><ul id="182f3e67-ed45-8055-8ddd-e4946c5ec627" class="bulleted-list"><li style="list-style-type:square">Foto profilo, </li></ul><ul id="182f3e67-ed45-8047-960a-c7ee6f6029fa" class="bulleted-list"><li style="list-style-type:square">Nome profilo, </li></ul><ul id="182f3e67-ed45-80f3-9b42-f3cc2a3d9be8" class="bulleted-list"><li style="list-style-type:square">Info, </li></ul><ul id="182f3e67-ed45-803c-b1d0-c98657096f8a" class="bulleted-list"><li style="list-style-type:square">Impostazioni privacy, </li></ul><ul id="182f3e67-ed45-808a-88f4-dbf59dd9994f" class="bulleted-list"><li style="list-style-type:square">Archiviazione e Dati</li></ul></li></ul><ul id="182f3e67-ed45-8091-ae09-d4ede2fb2a13" class="bulleted-list"><li style="list-style-type:circle">Gruppi WhatsApp<ul id="182f3e67-ed45-8009-827f-c02c2ec9a9ec" class="bulleted-list"><li style="list-style-type:square">Creare gruppo e Impostazioni</li></ul><ul id="182f3e67-ed45-805e-bc79-c7365fea34ed" class="bulleted-list"><li style="list-style-type:square">Rispondi in privato</li></ul><ul id="182f3e67-ed45-80f7-aeb6-e291a7f15770" class="bulleted-list"><li style="list-style-type:square">Aggiungere le persone al gruppo</li></ul><ul id="182f3e67-ed45-800d-be4d-f48d665b9dbc" class="bulleted-list"><li style="list-style-type:square">Silenziare notifiche gruppo</li></ul><ul id="182f3e67-ed45-80e3-9e8a-c8d9c78d7157" class="bulleted-list"><li style="list-style-type:square">Abbandonare ed eliminare un gruppo</li></ul></li></ul><ul id="182f3e67-ed45-8021-849f-de0c4b54d0e2" class="bulleted-list"><li style="list-style-type:circle">Community - unione Gruppi</li></ul><ul id="182f3e67-ed45-80dd-b92e-e16afc0f3ea2" class="bulleted-list"><li style="list-style-type:circle">Aggiornamenti - Stato: Pubblicare foto della durata di 24 ore</li></ul><ul id="182f3e67-ed45-8022-bca5-dad68f134f5c" class="bulleted-list"><li style="list-style-type:circle">Aggiornamenti - Canali    </li></ul></li></ul><ul id="182f3e67-ed45-806f-a732-d2f9ef3bdf2f" class="bulleted-list"><li style="list-style-type:disc"> Utilizzare il navigatore GPS - Google Maps (GPS / Posizione):<ul id="182f3e67-ed45-8095-9c2d-dc1f917d508f" class="bulleted-list"><li style="list-style-type:circle">Cercare indirizzo specifico,</li></ul><ul id="182f3e67-ed45-8040-99fc-cd15c029a088" class="bulleted-list"><li style="list-style-type:circle">Cercare attività commerciali,</li></ul><ul id="182f3e67-ed45-8082-8471-ee8a0d6e318a" class="bulleted-list"><li style="list-style-type:circle">Cambiare estetica grafica mappa (Satellite / Traffico),</li></ul><ul id="182f3e67-ed45-8054-b492-e80141b0e82e" class="bulleted-list"><li style="list-style-type:circle">Street View,</li></ul><ul id="182f3e67-ed45-8012-b946-d452ea2dcfe5" class="bulleted-list"><li style="list-style-type:circle"><em>Modalità navigatore: </em><ul id="182f3e67-ed45-80a7-b2ae-ea94c4b3fda8" class="bulleted-list"><li style="list-style-type:square"><em>Avvia</em></li></ul><ul id="182f3e67-ed45-80ca-85fc-e0dcd8ce0a99" class="bulleted-list"><li style="list-style-type:square"><em>Indicazioni (a piedi, auto, trasporto pubblico)</em></li></ul></li></ul></li></ul><ul id="182f3e67-ed45-80bd-8080-d8d5cb1c2aa0" class="bulleted-list"><li style="list-style-type:disc">PA - Pubblica Amministrazione<ul id="182f3e67-ed45-80e7-bc89-f5d020aa818c" class="bulleted-list"><li style="list-style-type:circle">Usare lo SPID o CIEid:<ul id="182f3e67-ed45-80f2-a6e4-f3560fb4abe1" class="bulleted-list"><li style="list-style-type:square">cosa è, </li></ul><ul id="182f3e67-ed45-80a4-907c-e3c66995f31b" class="bulleted-list"><li style="list-style-type:square">configurazione</li></ul><ul id="182f3e67-ed45-80b0-bd50-c18fca896d43" class="bulleted-list"><li style="list-style-type:square">Prove con alcuni Servizi PA: <ul id="182f3e67-ed45-8085-a94e-fb0989ee2480" class="bulleted-list"><li style="list-style-type:disc">[Sanità KM0] <a href="https://sanitakmzerofascicolo.it/">https://sanitakmzerofascicolo.it/</a> </li></ul><ul id="182f3e67-ed45-80ef-8a99-f402f543eb38" class="bulleted-list"><li style="list-style-type:disc">[INPS] <a href="https://www.inps.it/">https://www.inps.it/</a> </li></ul><ul id="182f3e67-ed45-8017-97d3-f3fd1ac669f2" class="bulleted-list"><li style="list-style-type:disc">[App IO] <a href="https://io.italia.it/">https://io.italia.it/</a>            <ul id="182f3e67-ed45-8093-96dd-e6cd1f086c9f" class="bulleted-list"><li style="list-style-type:circle">IT-Wallet Documenti</li></ul><ul id="182f3e67-ed45-8088-b5e7-e9f89ceecac7" class="bulleted-list"><li style="list-style-type:circle">[PagoPA - CBILL] <a href="https://www.pagopa.gov.it/">https://www.pagopa.gov.it/</a> </li></ul></li></ul></li></ul></li></ul></li></ul></div></figure><p id="182f3e67-ed45-8079-8a24-ca2b3f24bab6" class="">
+</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-809e-930c-e4b137e8472a"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%"><p id="182f3e67-ed45-8096-906a-cb7cbf78703a" class="">Oggetto: Corso di cellulare SPID e CIEid - Materiale necessario</p><p id="182f3e67-ed45-804a-b5e4-dd8f59b3a813" class=""><br/>Buongiorno a tutti,<br/>Vi ricordiamo che in [data], si terrà il nostro corso di cellulare SPID e CIEid.<br/></p><p id="182f3e67-ed45-8096-9350-f2e38edd506b" class=""><br/>Per iniziare a parlare di SPID e CIEid, vi preghiamo di portare con voi il seguente materiale:<br/></p><ul id="182f3e67-ed45-80b5-a865-d3ddac8f1788" class="bulleted-list"><li style="list-style-type:disc">Indirizzo email, </li></ul><ul id="182f3e67-ed45-8082-8b2a-c67783e7120d" class="bulleted-list"><li style="list-style-type:disc">Numero di cellulare, </li></ul><ul id="182f3e67-ed45-80f9-9320-ed848aeaecd5" class="bulleted-list"><li style="list-style-type:disc">Documento di identità valido, </li></ul><ul id="182f3e67-ed45-807b-bb1f-ef70f4b78152" class="bulleted-list"><li style="list-style-type:disc">Sistema di riconoscimento già effettuato (per SPID), </li></ul><ul id="182f3e67-ed45-80a4-993e-e36854423fcb" class="bulleted-list"><li style="list-style-type:disc">Cellulare Smartphone per App.</li></ul><p id="182f3e67-ed45-8005-84b4-d9b20bcd84fa" class="">
+</p><p id="182f3e67-ed45-804e-aa5d-f116521d317e" class="">Dati Account: </p><ul id="182f3e67-ed45-80a4-a83c-cc8125d55c1b" class="bulleted-list"><li style="list-style-type:disc">Nome utente, </li></ul><ul id="182f3e67-ed45-8062-869b-ec27b1b8b0f7" class="bulleted-list"><li style="list-style-type:disc">Password, </li></ul><ul id="182f3e67-ed45-807e-aa74-ff68b9cfffa7" class="bulleted-list"><li style="list-style-type:disc">Codice di Sicurezza in App (codice PosteID / codice CIEid), </li></ul><ul id="182f3e67-ed45-80be-91ec-feb45ee32c03" class="bulleted-list"><li style="list-style-type:disc">App installata e configurata (App PosteID / App CIEid).</li></ul><p id="182f3e67-ed45-801c-9c20-fa70e4a2aeea" class=""><br/>⚠️ Attenzione:<br/></p><ul id="182f3e67-ed45-8018-94f4-d1de0476dd81" class="bulleted-list"><li style="list-style-type:disc">Se utilizzerete la (Carta d&#x27;identità elettronica) CIEid, vi ricordiamo che è fondamentale avere a portata di mano il PIN e il PUK.</li></ul><ul id="182f3e67-ed45-808a-b236-f4b03ed9eb43" class="bulleted-list"><li style="list-style-type:disc">La prima parte (le prime 4 cifre) del PIN e del PUK, viene data nella lettera che ti danno allo sportello quando fai la richiesta della carta di identità elettronica.</li></ul><ul id="182f3e67-ed45-8009-9359-e8f9cd64dbd4" class="bulleted-list"><li style="list-style-type:disc">La seconda parte (le seconde 4 cifre) del PIN e del PUK, viene data nella lettera che ti danno insieme alla carta di identità elettronica (normalmente arriva per posta).</li></ul><ul id="182f3e67-ed45-805e-9d96-e7b1b57434af" class="bulleted-list"><li style="list-style-type:disc">Inoltre, avere uno smartphone con funzionalità NFC semplificherà alcune procedure.<br/><br/></li></ul><p id="182f3e67-ed45-8021-9f69-dde1689401ae" class="">Vi invitiamo a verificare di avere tutto l&#x27;occorrente prima dell&#x27;inizio del corso.</p><p id="182f3e67-ed45-8059-a4fc-de9e389b4216" class=""><br/>In caso di dubbi, non esitate a contattarci.<br/></p><p id="182f3e67-ed45-80a5-b3df-f84a5913dd29" class=""><br/>Cordiali saluti.<br/></p></div></figure><h3 id="182f3e67-ed45-8061-a272-e46a44f5befa" class="">Argomenti Corso Computer </h3><ul id="182f3e67-ed45-807c-97cc-cdbbf2b8a079" class="bulleted-list"><li style="list-style-type:disc">Portatile, Notebook, 2in1, Tablet</li></ul><ul id="182f3e67-ed45-8091-8e7e-f1a9872acaf8" class="bulleted-list"><li style="list-style-type:disc">Sistema operativo: Microsoft Windows 10 / 11 e successivi<br/><br/></li></ul><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8009-af3e-f255948e0d70"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%"><ul id="182f3e67-ed45-80fd-9d2d-dcb94f807ce9" class="bulleted-list"><li style="list-style-type:disc">Desktop</li></ul><ul id="182f3e67-ed45-80bf-85b6-e2f197162335" class="bulleted-list"><li style="list-style-type:disc">Barra delle applicazioni: <ul id="182f3e67-ed45-809b-a31e-f6c2eb1a9e1b" class="bulleted-list"><li style="list-style-type:circle">Start, </li></ul><ul id="182f3e67-ed45-80f9-9e96-e310e00638b8" class="bulleted-list"><li style="list-style-type:circle">Spegnere e riavviare il computer, </li></ul><ul id="182f3e67-ed45-80b0-ae3f-f6cef07af2b4" class="bulleted-list"><li style="list-style-type:circle">Ricerca, </li></ul><ul id="182f3e67-ed45-804a-9060-d6cd509447be" class="bulleted-list"><li style="list-style-type:circle">Applicazioni, </li></ul><ul id="182f3e67-ed45-8095-9272-d95ebf68d79f" class="bulleted-list"><li style="list-style-type:circle">Icone impostazioni rapide, </li></ul><ul id="182f3e67-ed45-804e-aad9-c7f047535d80" class="bulleted-list"><li style="list-style-type:circle">Data e Ora, </li></ul><ul id="182f3e67-ed45-8075-bb7a-d9912b82a657" class="bulleted-list"><li style="list-style-type:circle">Orologio e Calendario da barra applicazioni, </li></ul><ul id="182f3e67-ed45-8038-8088-f6e3d3a652d5" class="bulleted-list"><li style="list-style-type:circle">Regolare il volume da barra applicazioni</li></ul></li></ul><ul id="182f3e67-ed45-80a8-baaf-f1c287b36294" class="bulleted-list"><li style="list-style-type:disc">Esplora file e Cartelle:<ul id="182f3e67-ed45-8092-8395-f9087289ec24" class="bulleted-list"><li style="list-style-type:circle">Finestra<ul id="182f3e67-ed45-804b-929f-cf1bee238f93" class="bulleted-list"><li style="list-style-type:square">Ridurre a icona, </li></ul><ul id="182f3e67-ed45-8062-bdbb-ff2974dd47c7" class="bulleted-list"><li style="list-style-type:square">Ingrandisci, </li></ul><ul id="182f3e67-ed45-803c-832e-d1b34c978f23" class="bulleted-list"><li style="list-style-type:square">Chiudi</li></ul></li></ul><ul id="182f3e67-ed45-8008-a830-d3e9f7baed1b" class="bulleted-list"><li style="list-style-type:circle">Menu <ul id="182f3e67-ed45-80be-a158-da32c66cbe71" class="bulleted-list"><li style="list-style-type:square">Creare una cartella, </li></ul><ul id="182f3e67-ed45-806b-a06d-f220f132a0f7" class="bulleted-list"><li style="list-style-type:square">Rinominare una cartella,    </li></ul><ul id="182f3e67-ed45-80c0-beec-db2d56e69dfe" class="bulleted-list"><li style="list-style-type:square">Spostare (Taglia - Incolla), </li></ul><ul id="182f3e67-ed45-8072-90a1-f5b52b8377b1" class="bulleted-list"><li style="list-style-type:square">Copiare (Copia - Incolla),   </li></ul><ul id="182f3e67-ed45-807d-8925-f55d548e02f6" class="bulleted-list"><li style="list-style-type:square">Eliminare una cartella (Canc), </li></ul></li></ul><ul id="182f3e67-ed45-8057-b9b9-ec4f499f6f4d" class="bulleted-list"><li style="list-style-type:circle">Cestino<ul id="182f3e67-ed45-8032-8df8-e6eb324c9908" class="bulleted-list"><li style="list-style-type:square">cestino, </li></ul><ul id="182f3e67-ed45-80d1-98ff-fd5f0044385b" class="bulleted-list"><li style="list-style-type:square">ripristinare cartella dal cestino, </li></ul><ul id="182f3e67-ed45-806e-af36-f803cf376102" class="bulleted-list"><li style="list-style-type:square">svuotare cestino</li></ul></li></ul></li></ul><ul id="182f3e67-ed45-800a-97c5-cca10d679999" class="bulleted-list"><li style="list-style-type:disc">Internet:<ul id="182f3e67-ed45-8089-8b43-eb984b39f5e2" class="bulleted-list"><li style="list-style-type:circle">Hotspot Router WiFi da Smartphone</li></ul><ul id="182f3e67-ed45-8000-8a35-e3e2b9d34fce" class="bulleted-list"><li style="list-style-type:circle">Connessione a Rete WiFi</li></ul><ul id="182f3e67-ed45-804a-a9d8-ce0b91854264" class="bulleted-list"><li style="list-style-type:circle">Navigare su internet      <ul id="182f3e67-ed45-8013-bdf2-eeb231ca2e98" class="bulleted-list"><li style="list-style-type:square">Motore di ricerca Google,      </li></ul><ul id="182f3e67-ed45-809a-abde-ff6e68a11ea2" class="bulleted-list"><li style="list-style-type:square">Browser web “Google Chrome”,</li></ul><ul id="182f3e67-ed45-80f9-b210-cfe097d13451" class="bulleted-list"><li style="list-style-type:square">Preferiti, </li></ul><ul id="182f3e67-ed45-80d6-a729-eb44f85ae359" class="bulleted-list"><li style="list-style-type:square">Cancella Cronologia, </li></ul><ul id="182f3e67-ed45-804e-b218-ea26659958de" class="bulleted-list"><li style="list-style-type:square">Cronologia, </li></ul><ul id="182f3e67-ed45-80ce-bfe4-e6eb9be192b9" class="bulleted-list"><li style="list-style-type:square">Stampa pagina web,</li></ul><ul id="182f3e67-ed45-8081-97ca-fc79462f1b9c" class="bulleted-list"><li style="list-style-type:square">Salva immagini con nome, </li></ul><ul id="182f3e67-ed45-8024-8587-ce437d5ea5ad" class="bulleted-list"><li style="list-style-type:square">Copia/Incolla Testo,</li></ul><ul id="182f3e67-ed45-8004-af3d-ce8d6964ba65" class="bulleted-list"><li style="list-style-type:square">Download,</li></ul></li></ul><ul id="182f3e67-ed45-80b2-acab-f38c33174b25" class="bulleted-list"><li style="list-style-type:circle">Usare un indirizzo email - GMAIL</li></ul><ul id="182f3e67-ed45-808b-97ee-c3b5728c92fa" class="bulleted-list"><li style="list-style-type:circle">Creare un documento di testo <ul id="183f3e67-ed45-80c6-998d-f055ac3d30c5" class="bulleted-list"><li style="list-style-type:square">(MS) WordPad</li></ul><ul id="183f3e67-ed45-80ba-9c58-da7167c33be5" class="bulleted-list"><li style="list-style-type:square">MicroSoft Word</li></ul><ul id="183f3e67-ed45-8088-9bbb-dc9863d20547" class="bulleted-list"><li style="list-style-type:square">OpenOffice Writer</li></ul><ul id="183f3e67-ed45-8006-a09d-f18dcb13fe9e" class="bulleted-list"><li style="list-style-type:square">Libre Office Writer</li></ul></li></ul></li></ul></div></figure><p id="182f3e67-ed45-80fb-90b5-cfc977c98264" class="">
+</p><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="182f3e67-ed45-8038-bda1-e673706c120f"><div style="font-size:1.5em"><span class="icon">💶</span></div><div style="width:100%"><p id="182f3e67-ed45-80e3-ab98-d22cea5038e5" class="">CORSI DI INFORMATICA BASE PER ADULTI - NONNI DIGITALI </p><ul id="182f3e67-ed45-80d6-b501-e640ebcc3ecd" class="bulleted-list"><li style="list-style-type:disc">20 €/ora per enti e associazioni </li></ul><ul id="182f3e67-ed45-802d-8067-c74a541f50f4" class="bulleted-list"><li style="list-style-type:disc">30 €/ora per privati e aziende</li></ul><ul id="182f3e67-ed45-8004-8419-d2af4ae85720" class="bulleted-list"><li style="list-style-type:disc">Corso informatica base completo | durata 10 ore | 250€ (25 €/ora)</li></ul><p id="182f3e67-ed45-8027-b4eb-d022358b0025" class="">[ * Pagamento in contanti ]</p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
